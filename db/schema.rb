@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_06_12_161644) do
+ActiveRecord::Schema[7.2].define(version: 2024_06_12_164204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,9 +21,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_06_12_161644) do
     t.datetime "vencimento"
     t.string "descricao"
     t.integer "status"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_entradas_on_user_id"
   end
 
@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_06_12_161644) do
     t.datetime "vencimento"
     t.string "descricao"
     t.integer "status"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_saidas_on_user_id"
   end
 

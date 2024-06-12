@@ -4,14 +4,16 @@ one:
   valorPlanejado: 1.5
   valorTotal: 1.5
   valorTaxa: 1.5
-  vencimento: 2024-06-12 12:15:43
+  vencimento: 2024-06-12 12:41:35
   descricao: MyString
   status: 1
+  user: one
 
 two:
   valorPlanejado: 1.5
   valorTotal: 1.5
   valorTaxa: 1.5
-  vencimento: 2024-06-12 12:15:43
+  vencimento: 2024-06-12 12:41:35
   descricao: MyString
   status: 1
+  user: two

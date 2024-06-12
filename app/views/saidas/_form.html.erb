@@ -1,0 +1,52 @@
+<%= form_with(model: saida) do |form| %>
+  <% if saida.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(saida.errors.count, "error") %> prohibited this saida from being saved:</h2>
+
+      <ul>
+        <% saida.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :valorPlanejado, style: "display: block" %>
+    <%= form.text_field :valorPlanejado %>
+  </div>
+
+  <div>
+    <%= form.label :valorTotal, style: "display: block" %>
+    <%= form.text_field :valorTotal %>
+  </div>
+
+  <div>
+    <%= form.label :valorTaxa, style: "display: block" %>
+    <%= form.text_field :valorTaxa %>
+  </div>
+
+  <div>
+    <%= form.label :vencimento, style: "display: block" %>
+    <%= form.datetime_field :vencimento %>
+  </div>
+
+  <div>
+    <%= form.label :descricao, style: "display: block" %>
+    <%= form.text_field :descricao %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

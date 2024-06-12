@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @saida %>
+
+<div>
+  <%= link_to "Edit this saida", edit_saida_path(@saida) %> |
+  <%= link_to "Back to saidas", saidas_path %>
+
+  <%= button_to "Destroy this saida", @saida, method: :delete %>
+</div>
