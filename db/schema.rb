@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_06_12_164204) do
+ActiveRecord::Schema[7.2].define(version: 2024_06_13_154408) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categoria", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entradas", force: :cascade do |t|
     t.float "valorPlanejado"
@@ -24,6 +30,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_06_12_164204) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "categoria_id", null: false
+    t.index ["categoria_id"], name: "index_entradas_on_categoria_id"
     t.index ["user_id"], name: "index_entradas_on_user_id"
   end
 
