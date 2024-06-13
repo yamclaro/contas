@@ -61,3 +61,7 @@ end
 gem "devise", "~> 4.9"
 
 gem "pg", "~> 1.5"
+
+gem "devise-i18n", "~> 1.12"
+
+gem "i18n", "~> 1.14"
