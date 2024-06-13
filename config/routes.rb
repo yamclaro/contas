@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :saidas
-  resources :entradas
-  devise_for :users
+  devise_for :users 
+  #resources :saidas
+  #resources :entradas
+  #devise_for :users
 end

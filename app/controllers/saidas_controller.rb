@@ -1,53 +1,42 @@
 class SaidasController < ApplicationController
   before_action :set_saida, only: %i[ show edit update destroy ]
 
-  # GET /saidas or /saidas.json
   def index
     @saidas = Saida.all
   end
 
-  # GET /saidas/1 or /saidas/1.json
   def show
   end
 
-  # GET /saidas/new
   def new
     @saida = Saida.new
   end
 
-  # GET /saidas/1/edit
   def edit
   end
 
-  # POST /saidas or /saidas.json
   def create
     @saida = Saida.new(saida_params)
 
     respond_to do |format|
       if @saida.save
         format.html { redirect_to saida_url(@saida), notice: "Saida was successfully created." }
-        format.json { render :show, status: :created, location: @saida }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @saida.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /saidas/1 or /saidas/1.json
   def update
     respond_to do |format|
       if @saida.update(saida_params)
         format.html { redirect_to saida_url(@saida), notice: "Saida was successfully updated." }
-        format.json { render :show, status: :ok, location: @saida }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @saida.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /saidas/1 or /saidas/1.json
   def destroy
     @saida.destroy!
 
@@ -58,13 +47,11 @@ class SaidasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_saida
       @saida = Saida.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def saida_params
-      params.require(:saida).permit(:valorPlanejado, :valorTotal, :valorTaxa, :vencimento, :descricao, :status, :user_id)
+      params.require(:saida).permit(:valorPlanejado, :valorTotal, :valorTaxa, :vencimento, :descricao)
     end
 end
