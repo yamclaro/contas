@@ -18,7 +18,8 @@
       <td><%= categorium.id %></td>
       <td><%= categorium.descricao %></td>
       <td>
-         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><%= link_to "Edit", edit_categorium_path(categorium) %></button>|
+         <%= link_to "Edit", edit_categorium_path(categorium), class: 'btn btn-primary' %>  |
+         
          <%= link_to "Destroy", categorium, method: :delete, class: 'btn btn-danger'%>
       </td>
     </tr>
@@ -27,7 +28,6 @@
 </table>
 <br>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Editar</button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
@@ -35,7 +35,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <%= render "form", categorium: @categorium %>
+    ...
   </div>
 </div>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
