@@ -1,0 +1,12 @@
+<%= simple_form_for (@categorianovo)do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="form-inputs">
+<%= f.input :descricao %>
+</div>
+
+<div class="form-actions">
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<%= f.button :submit, class:"btn btn-primary"%>

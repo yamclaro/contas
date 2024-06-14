@@ -8,14 +8,14 @@ class EntradasController < ApplicationController
   end
 
   def new
-    @entrada = Entrada.new
+    @entrada = current_user.entradas.new
   end
 
   def edit
   end
 
   def create
-    @entrada = Entrada.new(entrada_params)
+    @entrada = current_user.entradas.new(entrada_params)
 
     respond_to do |format|
       if @entrada.save

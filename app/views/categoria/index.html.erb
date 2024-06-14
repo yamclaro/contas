@@ -1,0 +1,70 @@
+<h1>Categories</h1>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Novo
+</button>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categoria.each do |categorium| %>
+    <tr>
+      <td><%= categorium.id %></td>
+      <td><%= categorium.descricao %></td>
+      <td>
+         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><%= link_to "Edit", edit_categorium_path(categorium) %></button>|
+         <%= link_to "Destroy", categorium, method: :delete, class: 'btn btn-danger'%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Editar</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Categoria</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= render "form", categorium: @categorium %>
+  </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Novo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for @categorianovo do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :descricao %>
+          </div>
+
+          <div class="form-actions">
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= f.button :submit, class:"btn btn-primary" %>
+          </div>
+      </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+

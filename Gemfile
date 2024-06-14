@@ -65,3 +65,7 @@ gem "pg", "~> 1.5"
 gem "devise-i18n", "~> 1.12"
 
 gem "i18n", "~> 1.14"
+
+gem "simple_form", "~> 5.3"
+
+gem "byebug", "~> 11.1"

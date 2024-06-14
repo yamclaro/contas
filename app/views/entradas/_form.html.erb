@@ -1,0 +1,10 @@
+<%= simple_form_for(@entrada )do |form| %>
+  <%= form.input :descricao %>
+  <%= form.input :valorPlanejado %>
+  <%= form.input :vencimento, as: :date, html5: true %>
+
+  <br>
+  <p>
+    <%= form.button :submit, class: 'btn btn-primary' %>
+  </p>
+<% end %>
